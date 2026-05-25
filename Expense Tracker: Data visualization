@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+
+# Data
+expenses = {
+    'Food': 5000,
+    'Transport': 2000,
+    'Rent': 10000,
+    'Entertainment': 3000
+}
+
+# Plotting
+plt.figure(figsize=(6,6))
+plt.pie(expenses.values(), labels=expenses.keys(), autopct='%1.1f%%')
+plt.title('Expense Tracker')
+plt.show()
+
+# Add expense function
+def add_expense():
+    category = input("Category: ")
+    amount = int(input("Amount: "))
+    expenses[category] = expenses.get(category, 0) + amount
+    print("Expense added!")
+
+# Run
+add_expense()
+print(expenses)
+plt.figure(figsize=(6,6))
+plt.pie(expenses.values(), labels=expenses.keys(), autopct='%1.1f%%')
+plt.title('Updated Expenses')
+plt.show()
